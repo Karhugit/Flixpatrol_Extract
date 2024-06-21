@@ -5,16 +5,18 @@ from bs4 import BeautifulSoup
 import sys
 from rapidfuzz import fuzz  # Using rapidfuzz for better performance
 import re
+from dotenv import load_dotenv
 
 # Debug tracing flag
 trace = False  # Enable detailed logging for troubleshooting
 
-# Trakt API credentials
-client_id = 'your_trakt_client_id'
-client_secret = 'your_trakt_client_secret'
+# Load environment variables from .env file
+load_dotenv()
 
-# Replace 'your_trakt_username' with your actual Trakt username
-trakt_username = 'your_username'
+# Access the environment variables
+client_id = os.getenv('CLIENT_ID')
+client_secret = os.getenv('CLIENT_SECRET')
+trakt_username = os.getenv('TRAKT_USERNAME')
 
 # Headers for HTTP requests
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_17) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.79 Safari/537.36'}
